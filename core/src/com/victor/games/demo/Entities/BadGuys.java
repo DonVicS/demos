@@ -23,7 +23,7 @@ public class BadGuys {
 
     public BadGuys(Viewport viewport, List<BadGuy> badGuys) {
         this.viewport = viewport;
-        this.badGuys = new ArrayList<BadGuy>(badGuys);
+//        this.badGuys = new ArrayList<BadGuy>(badGuys);
         init(badGuys);
     }
 

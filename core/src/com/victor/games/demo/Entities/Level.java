@@ -10,10 +10,39 @@ import java.util.List;
 public class Level {
     public int id;
     public String name;
-    public Vector2 startingPoint;
-    public Vector2 endPoint;
-    public List<BadGuy> badGuys;
-    public List<Tresure> tresures;
+
+    public Vector2 playerStartingPoint;
+    public Vector2 playerEndPoint;
     public float playerSpeed;
-//    public Player player;
+
+    public List<BadGuy> badGuysList;
+    public List<Treasure> treasuresList;
+
+    public Level() {
+
+    }
+
+    public Level(int id, String name, Vector2 playerStartingPoint, Vector2 playerEndPoint,
+                 float playerSpeed, List<BadGuy> badGuysList, List<Treasure> treasuresList) {
+        this.id = id;
+        this.name = name;
+        this.playerStartingPoint = playerStartingPoint;
+        this.playerEndPoint = playerEndPoint;
+        this.playerSpeed = playerSpeed;
+        this.badGuysList = badGuysList;
+        this.treasuresList = treasuresList;
+    }
+
+    @Override
+    public String toString() {
+        return "Level{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", playerStartingPoint=" + playerStartingPoint +
+                ", playerEndPoint=" + playerEndPoint +
+                ", playerSpeed=" + playerSpeed +
+                ", badGuysList=" + badGuysList +
+                ", treasuresList=" + treasuresList +
+                '}';
+    }
 }

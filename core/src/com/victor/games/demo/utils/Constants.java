@@ -15,6 +15,9 @@ public class Constants {
     public static final Color LOAD_SCREEN_BACKGROUND_COLOR = Color.CYAN;
     public static final Color CREDITS_SCREEN_BACKGROUND_COLOR = Color.RED;
 
+    public static final float LEVEL_SCREEN_WIDTH = 26;
+    public static final float LEVEL_SCREEN_HEIGHT = 19;
+
     public static final float BUTTONS_LENGTH = WORLD_SIZE * 0.75f;
     public static final float BUTTONS_HIGH = WORLD_SIZE * 0.1f;
     public static final float BUTTONS_SEPARATION = BUTTONS_HIGH / 5;

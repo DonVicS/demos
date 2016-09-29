@@ -8,6 +8,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.victor.games.demo.DemoGame;
 import com.victor.games.demo.Entities.BadGuy;
 import com.victor.games.demo.Entities.BadGuys;
+import com.victor.games.demo.Entities.Level;
+import com.victor.games.demo.Entities.Treasures;
+import com.victor.games.demo.levels.LevelManager;
 import com.victor.games.demo.utils.Constants;
 
 import java.util.ArrayList;
@@ -21,25 +24,25 @@ public class LevelScreen extends GenericScreen {
     public static final String TAG = LevelScreen.class.getName();
 
     private DemoGame game;
-    private int difficulty;
+//    private int difficulty;
+    private Level level;
 
-    private static final float WORLD_WIDTH = 26;
-    private static final float WORLD_HEIGHT = 19;
-    private static final float PERIOD = 1.0f;
+//    private static final float PERIOD = 1.0f;
 
 //    private long initialTime;
 
-    private List<BadGuy> badGuysList;
+//    private List<BadGuy> badGuysList;
 
     private BadGuys badGuys;
+    private Treasures treasures;
 
     public LevelScreen(DemoGame game, int difficulty) {
         this.game = game;
-        this.difficulty = difficulty;
+        this.level = LevelManager.get(difficulty);
 
-        super.worldWidth = WORLD_WIDTH;
-        super.worldHeight = WORLD_HEIGHT;
-
+        super.worldWidth = Constants.LEVEL_SCREEN_WIDTH;
+        super.worldHeight = Constants.LEVEL_SCREEN_HEIGHT;
+/*
         badGuysList = new ArrayList<BadGuy>();
 
         BadGuy badGuy = new BadGuy(new Vector2(2 + Constants.BAD_GUYS_RADIUS,
@@ -76,14 +79,15 @@ public class LevelScreen extends GenericScreen {
                                         2 + Constants.BAD_GUYS_RADIUS),
                             new Vector2(0, -0.5f));
         badGuysList.add(badGuy);
-
+*/
     }
 
     @Override
     public void show() {
         super.show();
 //        initialTime = TimeUtils.nanoTime();
-        badGuys = new BadGuys(viewport, badGuysList);
+        badGuys = new BadGuys(viewport, level.badGuysList);
+        treasures = new Treasures(viewport, level.treasuresList);
     }
 
     @Override
@@ -105,14 +109,15 @@ public class LevelScreen extends GenericScreen {
 
         renderMap();
         badGuys.render(renderer);
+        treasures.render(renderer);
 
         renderer.end();
 
     }
 
     private void renderMap() {
-        for (int yStart = 0; yStart < WORLD_HEIGHT; yStart += 1) {
-            for (int xStart = 0; xStart < WORLD_WIDTH; xStart += 1) {
+        for (int yStart = 0; yStart < Constants.LEVEL_SCREEN_HEIGHT; yStart += 1) {
+            for (int xStart = 0; xStart < Constants.LEVEL_SCREEN_WIDTH; xStart += 1) {
                 if ((yStart + xStart) % 2 == 0) {
                     renderer.setColor(Color.WHITE);
                 } else {
@@ -126,7 +131,8 @@ public class LevelScreen extends GenericScreen {
     @Override
     public void resize(int width, int height) {
         super.resize(width, height);
-        badGuys.init(badGuysList);
+        badGuys.init(level.badGuysList);
+        treasures.init(level.treasuresList);
     }
 
     @Override
