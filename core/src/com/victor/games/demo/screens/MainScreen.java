@@ -1,49 +1,26 @@
-package com.victor.games.demo;
+package com.victor.games.demo.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputAdapter;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Align;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.victor.games.demo.DemoGame;
+import com.victor.games.demo.utils.Constants;
 
 
 /**
- * Created by Bicho Malo on 17/09/16.
+ * Created by Victor Santamaria on 17/09/16.
  */
-public class MainScreen extends InputAdapter implements Screen {
+public class MainScreen extends GenericScreen {
 
     public static final String TAG = MainScreen.class.getName();
 
     private DemoGame game;
 
-    private ShapeRenderer renderer;
-    private SpriteBatch batch;
-    private FitViewport viewport;
-
-    private BitmapFont font;
-
     public MainScreen(DemoGame game) {
         this.game = game;
-    }
-
-    @Override
-    public void show() {
-        renderer = new ShapeRenderer();
-        batch = new SpriteBatch();
-
-        viewport = new FitViewport(Constants.WORLD_SIZE, Constants.WORLD_SIZE);
-        Gdx.input.setInputProcessor(this);
-
-        font = new BitmapFont();
-        font.getData().setScale(Constants.BUTTONS_LABEL_SCALE);
-        font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
     }
 
     @Override
@@ -80,33 +57,6 @@ public class MainScreen extends InputAdapter implements Screen {
         font.draw(batch, Constants.LOAD_LABEL, Constants.LOAD_BUTTON_CENTER.x + loadLayout.width * 1.5f, Constants.LOAD_BUTTON_CENTER.y, 0, Align.center, false);
 
         batch.end();
-
-    }
-
-    @Override
-    public void resize(int width, int height) {
-        viewport.update(width, height, true);
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void hide() {
-        batch.dispose();
-        font.dispose();
-        renderer.dispose();
-    }
-
-    @Override
-    public void dispose() {
 
     }
 

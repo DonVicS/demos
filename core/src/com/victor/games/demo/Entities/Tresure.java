@@ -1,9 +1,9 @@
-package com.victor.games.demo;
+package com.victor.games.demo.Entities;
 
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * Created by Bicho Malo on 19/09/16.
+ * Created by Victor Santamaria on 19/09/16.
  */
 public class Tresure {
     int id;

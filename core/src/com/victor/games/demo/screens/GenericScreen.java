@@ -1,32 +1,32 @@
-package com.victor.games.demo;
+package com.victor.games.demo.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.victor.games.demo.utils.Constants;
 
 /**
- * Created by Bicho Malo on 17/09/16.
+ * Created by Victor Santamaria on 22/09/16.
  */
-public class LoadScreen extends InputAdapter implements Screen {
+public abstract class GenericScreen extends InputAdapter implements Screen {
 
-    public static final String TAG = LoadScreen.class.getName();
+    protected float worldWidth;
+    protected float worldHeight;
 
-    private DemoGame game;
+    protected ShapeRenderer renderer;
+    protected SpriteBatch batch;
+    protected FitViewport viewport;
 
-    private ShapeRenderer renderer;
-    private SpriteBatch batch;
-    private FitViewport viewport;
+    protected BitmapFont font;
 
-    private BitmapFont font;
-
-    public LoadScreen(DemoGame game){
-        this.game = game;
+    public GenericScreen() {
+        this.worldWidth = Constants.WORLD_SIZE;
+        this.worldHeight = Constants.WORLD_SIZE;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class LoadScreen extends InputAdapter implements Screen {
         renderer = new ShapeRenderer();
         batch = new SpriteBatch();
 
-        viewport = new FitViewport(Constants.WORLD_SIZE, Constants.WORLD_SIZE);
+        viewport = new FitViewport(worldWidth, worldHeight);
         Gdx.input.setInputProcessor(this);
 
         font = new BitmapFont();
@@ -43,18 +43,7 @@ public class LoadScreen extends InputAdapter implements Screen {
     }
 
     @Override
-    public void render(float delta) {
-        viewport.apply();
-        Gdx.gl.glClearColor(Constants.LOAD_SCREEN_BACKGROUND_COLOR.r, Constants.LOAD_SCREEN_BACKGROUND_COLOR.g, Constants.LOAD_SCREEN_BACKGROUND_COLOR.b, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        renderer.setProjectionMatrix(viewport.getCamera().combined);
-
-        renderer.begin(ShapeRenderer.ShapeType.Filled);
-
-        renderer.end();
-
-    }
+    public abstract void render(float delta);
 
     @Override
     public void resize(int width, int height) {
@@ -84,9 +73,6 @@ public class LoadScreen extends InputAdapter implements Screen {
     }
 
     @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        game.showMainScreen();
-        return true;
-    }
+    public abstract boolean touchDown(int screenX, int screenY, int pointer, int button);
 
 }

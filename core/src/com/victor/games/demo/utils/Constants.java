@@ -1,10 +1,10 @@
-package com.victor.games.demo;
+package com.victor.games.demo.utils;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * Created by Bicho Malo on 17/09/16.
+ * Created by Victor Santamaria on 17/09/16.
  */
 public class Constants {
 
@@ -13,6 +13,7 @@ public class Constants {
     public static final Color LEVEL_SCREEN_BACKGROUND = Color.CORAL;
     public static final Color SAVE_SCREEN_BACKGROUND_COLOR = Color.BLUE;
     public static final Color LOAD_SCREEN_BACKGROUND_COLOR = Color.CYAN;
+    public static final Color CREDITS_SCREEN_BACKGROUND_COLOR = Color.RED;
 
     public static final float BUTTONS_LENGTH = WORLD_SIZE * 0.75f;
     public static final float BUTTONS_HIGH = WORLD_SIZE * 0.1f;
@@ -32,5 +33,15 @@ public class Constants {
     public static final Vector2 LOAD_BUTTON_POSITION = new Vector2(BUTTON_X, SAVE_BUTTON_POSITION.y - BUTTONS_SEPARATION - BUTTONS_HIGH);
     public static final Vector2 LOAD_BUTTON_CENTER = new Vector2(BUTTON_X + BUTTONS_LENGTH / 2, LOAD_BUTTON_POSITION.y + BUTTONS_HIGH / 2);
     public static final String LOAD_LABEL = "Load Game";
+
+    public static final Vector2 BAD_GUYS_ACCELERATION = new Vector2(0, 0);
+    public static final float BAD_GUYS_SIZE = 0.8f;
+    public static final float BAD_GUYS_RADIUS = 0.5f;
+    public static final Color BAD_GUY_COLOR = Color.GREEN;
+
+    public static final Color PLAYER_COLOR = Color.RED;
+
+    public static final Color TRESURE_COLOR = Color.GOLD;
+    public static final Color WALL_COLOR = Color.BLUE;
 
 }
