@@ -11,9 +11,12 @@ public class Constants {
     public static final float WORLD_SIZE = 480.0f;
     public static final Color MAIN_SCREEN_BACKGROUND = Color.NAVY;
     public static final Color LEVEL_SCREEN_BACKGROUND = Color.CORAL;
-    public static final Color SAVE_SCREEN_BACKGROUND_COLOR = Color.BLUE;
+    public static final Color SAVE_SCREEN_BACKGROUND_COLOR = Color.FIREBRICK;
     public static final Color LOAD_SCREEN_BACKGROUND_COLOR = Color.CYAN;
     public static final Color CREDITS_SCREEN_BACKGROUND_COLOR = Color.RED;
+
+    public static final float GRAVITATIONAL_ACCELERATION = 0.8f;
+    public static final float ACCELEROMETER_SENSITIVITY = 0.5f;
 
     public static final float LEVEL_SCREEN_WIDTH = 26;
     public static final float LEVEL_SCREEN_HEIGHT = 19;
@@ -37,9 +40,11 @@ public class Constants {
     public static final Vector2 LOAD_BUTTON_CENTER = new Vector2(BUTTON_X + BUTTONS_LENGTH / 2, LOAD_BUTTON_POSITION.y + BUTTONS_HIGH / 2);
     public static final String LOAD_LABEL = "Load Game";
 
-    public static final Vector2 BAD_GUYS_ACCELERATION = new Vector2(0, 0);
-    public static final float BAD_GUYS_SIZE = 0.8f;
-    public static final float BAD_GUYS_RADIUS = 0.5f;
+    public static final float ENTITIES_SIZE = 1;
+    public static final float ENTITIES_RADIUS = ENTITIES_SIZE / 2;
+
+    public static final float BAD_GUYS_SIZE = 1;
+    public static final float BAD_GUYS_RADIUS = BAD_GUYS_SIZE / 2;
     public static final Color BAD_GUY_COLOR = Color.GREEN;
 
     public static final Color PLAYER_COLOR = Color.RED;

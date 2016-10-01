@@ -44,4 +44,8 @@ public class BadGuys {
         }
     }
 
+    public List<BadGuy> getBadGuysList() {
+        return new ArrayList<BadGuy>(badGuys);
+    }
+
 }

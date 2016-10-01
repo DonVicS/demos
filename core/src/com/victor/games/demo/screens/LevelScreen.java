@@ -9,6 +9,7 @@ import com.victor.games.demo.DemoGame;
 import com.victor.games.demo.Entities.BadGuy;
 import com.victor.games.demo.Entities.BadGuys;
 import com.victor.games.demo.Entities.Level;
+import com.victor.games.demo.Entities.Player;
 import com.victor.games.demo.Entities.Treasures;
 import com.victor.games.demo.levels.LevelManager;
 import com.victor.games.demo.utils.Constants;
@@ -33,6 +34,7 @@ public class LevelScreen extends GenericScreen {
 
 //    private List<BadGuy> badGuysList;
 
+    private Player player;
     private BadGuys badGuys;
     private Treasures treasures;
 
@@ -86,13 +88,23 @@ public class LevelScreen extends GenericScreen {
     public void show() {
         super.show();
 //        initialTime = TimeUtils.nanoTime();
+        player = new Player(viewport, level.playerStartingPoint, level.playerEndPoint, level.playerSpeed);
         badGuys = new BadGuys(viewport, level.badGuysList);
         treasures = new Treasures(viewport, level.treasuresList);
     }
 
     @Override
+    public void resize(int width, int height) {
+        super.resize(width, height);
+        player.init();
+        badGuys.init(level.badGuysList);
+        treasures.init(level.treasuresList);
+    }
+
+    @Override
     public void render(float delta) {
         badGuys.update(delta);
+        player.update(delta);
 
         viewport.apply();
         Gdx.gl.glClearColor(Constants.LEVEL_SCREEN_BACKGROUND.r, Constants.LEVEL_SCREEN_BACKGROUND.g, Constants.LEVEL_SCREEN_BACKGROUND.b, 1);
@@ -110,6 +122,7 @@ public class LevelScreen extends GenericScreen {
         renderMap();
         badGuys.render(renderer);
         treasures.render(renderer);
+        player.render(renderer);
 
         renderer.end();
 
@@ -126,13 +139,6 @@ public class LevelScreen extends GenericScreen {
                 renderer.rect(xStart, yStart, 1, 1);
             }
         }
-    }
-
-    @Override
-    public void resize(int width, int height) {
-        super.resize(width, height);
-        badGuys.init(level.badGuysList);
-        treasures.init(level.treasuresList);
     }
 
     @Override
