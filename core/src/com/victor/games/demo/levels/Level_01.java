@@ -31,7 +31,7 @@ public class Level_01 {
         name = "Stage 1";
         playerStartingPoint = new Vector2(0.5f, Constants.LEVEL_SCREEN_HEIGHT - 0.5f);
         playerEndPoint = new Vector2(Constants.LEVEL_SCREEN_WIDTH, Constants.LEVEL_SCREEN_HEIGHT);
-        playerSpeed = 1.1f;
+        playerSpeed = 5;
         setBadGuys();
         setTreasures();
 
@@ -49,35 +49,40 @@ public class Level_01 {
                                             10 + Constants.BAD_GUYS_RADIUS),
                                     new Vector2(5 + Constants.BAD_GUYS_RADIUS,
                                             10 + Constants.BAD_GUYS_RADIUS),
-                                    new Vector2(0.05f, 0));
+//                                    new Vector2(0.05f, 0));
+                new Vector2(5, 0));
         badGuysList.add(badGuy);
 
         badGuy = new BadGuy(new Vector2(5 + Constants.BAD_GUYS_RADIUS,
                                     9 + Constants.BAD_GUYS_RADIUS),
                             new Vector2(15 + Constants.BAD_GUYS_RADIUS,
                                     9 + Constants.BAD_GUYS_RADIUS),
-                            new Vector2(0.1f, 0));
+//                            new Vector2(0.1f, 0));
+                new Vector2(10, 0));
         badGuysList.add(badGuy);
 
         badGuy = new BadGuy(new Vector2(20 + Constants.BAD_GUYS_RADIUS,
                                     12 + Constants.BAD_GUYS_RADIUS),
                             new Vector2(10 + Constants.BAD_GUYS_RADIUS,
                                     12 + Constants.BAD_GUYS_RADIUS),
-                            new Vector2(-0.01f, 0));
+//                            new Vector2(-0.01f, 0));
+        new Vector2(-5, 0));
         badGuysList.add(badGuy);
 
         badGuy = new BadGuy(new Vector2(18 + Constants.BAD_GUYS_RADIUS,
                                     5 + Constants.BAD_GUYS_RADIUS),
                             new Vector2(18 + Constants.BAD_GUYS_RADIUS,
                                     10 + Constants.BAD_GUYS_RADIUS),
-                            new Vector2(0, 0.05f));
+//                            new Vector2(0, 0.05f));
+        new Vector2(0, 5));
         badGuysList.add(badGuy);
 
         badGuy = new BadGuy(new Vector2(13 + Constants.BAD_GUYS_RADIUS,
                                     10 + Constants.BAD_GUYS_RADIUS),
                             new Vector2(13 + Constants.BAD_GUYS_RADIUS,
                                     2 + Constants.BAD_GUYS_RADIUS),
-                            new Vector2(0, -0.5f));
+//                            new Vector2(0, -0.5f));
+        new Vector2(0, -12));
         badGuysList.add(badGuy);
     }
 

@@ -41,65 +41,60 @@ public class BadGuy {
     public void update(float delta) {
 //        Vector2 a = new Vector2(0.5f, 0);
 //        speed.mulAdd(a, delta);
-//        position.mulAdd(speed, delta);
-/*
+        position.mulAdd(speed, delta);
 
-        if (position.x >= endPoint.x) {
-            speed.x = reversedSpeed.x;
-            position.x = endPoint.x;
-        } else if (position.x <= startingPoint.x) {
-            speed.x = normalSpeed.x;
-            position.x = startingPoint.x;
-        }
-*/
-
-        position.x += speed.x;
-        position.y += speed.y;
-
-//        distance.x += speed.x;
-//        distance.y += speed.y;
-/*
-
-        if (position.x >= endPoint.x && distance.x >= endPoint.x - startingPoint.x) {
-            speed.x = reversedSpeed.x;
-            position.x = endPoint.x;
-            distance.x = 0;
-            return;
-        }
-
-        if (position.x <= startingPoint.x && distance.x <= (endPoint.x - startingPoint.x) * -1) {
-            speed.x = normalSpeed.x;
-            position.x = startingPoint.x;
-            distance.x = 0;
-            return;
-        }
-*/
-/*
-        if (position.x >= endPoint.x && !goBack) {
-            speed.x *= -1;
-            goBack = true;
-        }
-        else if (position.x <= startingPoint.x && goBack) {
-            speed.x *= -1;
-            goBack = false;
+        if (startingPoint.x < endPoint.x) {
+            if (position.x + delta * speed.x > endPoint.x && speed.x > 0) {
+                position.x = endPoint.x;
+                speed.x *= -1;
+            } else 
+            if (position.x - delta * speed.x < startingPoint.x && speed.x < 0) {
+                position.x = startingPoint.x;
+                speed.x *= -1;
+            }
+        } else 
+        if (startingPoint.x > endPoint.x) {
+            if (position.x - delta * speed.x < endPoint.x && speed.x < 0) {
+                position.x = endPoint.x;
+                speed.x *= -1;
+            } else
+            if (position.x + delta * speed.x > startingPoint.x && speed.x > 0) {
+                position.x = startingPoint.x;
+                speed.x *= -1;
+            }
+        } else
+        if (startingPoint.y < endPoint.y) {
+            if (position.y + delta * speed.y > endPoint.y && speed.y > 0) {
+                position.y = endPoint.y;
+                speed.y *= -1;
+            } else
+            if (position.y - delta * speed.y < startingPoint.y && speed.y < 0) {
+                position.y = startingPoint.y;
+                speed.y *= -1;
+            }
+        } else
+        if (startingPoint.y > endPoint.y) {
+            if (position.y - delta * speed.y < endPoint.y && speed.y < 0) {
+                position.y = endPoint.y;
+                speed.y *= -1;
+            } else
+            if (position.y + delta * speed.y > startingPoint.y && speed.y > 0) {
+                position.y = startingPoint.y;
+                speed.y *= -1;
+            }
+        } /*else {
+            position.mulAdd(speed, delta);
         }*/
-
-        if (startingPoint.x < endPoint.x && (position.x >= endPoint.x || position.x <= startingPoint.x))
+        
+        /*if (startingPoint.x < endPoint.x && (position.x >= endPoint.x || position.x <= startingPoint.x))
             speed.x *= -1;
         else if (startingPoint.x > endPoint.x && (position.x <= endPoint.x || position.x >= startingPoint.x))
             speed.x *= -1;
         else if (startingPoint.y < endPoint.y && (position.y >= endPoint.y || position.y <= startingPoint.y))
             speed.y *= -1;
         else if (startingPoint.y > endPoint.y && (position.y <= endPoint.y || position.y >= startingPoint.y))
-            speed.y *= -1;
+            speed.y *= -1;*/
 
-//        if (position == endPoint || position == startingPoint) {
-//            speed.x *= -1;
-//            speed.y *= -1;
-////            a.x *= -1;
-////            a.y *= -1;
-//        }
-//    }
     }
 
     public void render(ShapeRenderer renderer) {
@@ -111,13 +106,6 @@ public class BadGuy {
         Vector2 p2 = new Vector2(p.x, p.y);
         renderer.circle(p2.x, p2.y, Constants.BAD_GUYS_RADIUS, 20);
 */
-
-
-//        renderer.triangle(
-//                position.x, position.y,
-//                position.x - Constants.BAD_GUYS_SIZE / 2, position.y + Constants.BAD_GUYS_SIZE,
-//                position.x + Constants.BAD_GUYS_SIZE / 2, position.y + Constants.BAD_GUYS_SIZE
-//        );
     }
 
     @Override

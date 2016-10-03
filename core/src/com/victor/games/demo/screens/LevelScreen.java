@@ -143,6 +143,8 @@ public class LevelScreen extends GenericScreen {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        Vector2 worldTouch = viewport.unproject(new Vector2(screenX, screenY));
+
 //        game.showMainScreen();
         return true;
     }

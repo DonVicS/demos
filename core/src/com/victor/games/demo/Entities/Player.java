@@ -42,26 +42,68 @@ public class Player {
     }
 
     public void update(float delta) {
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            position.x -= delta * playerSpeed;
-        } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            position.x += delta * playerSpeed;
-        } else if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            position.y += delta * playerSpeed;
-        } else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            position.y -= delta * playerSpeed;
-        }
+        keyboardInput(delta);
+        accelerometer(delta);
+//        touchInput(delta);
 
+        ensureInBounds();
+    }
+
+    private void touchInput(float delta) {
+        if (Gdx.input.isTouched()) {
+            float screenX = Gdx.input.getX();
+            float screenY = Gdx.input.getY();
+            Vector2 worldTouch = viewport.unproject(new Vector2(screenX, screenY));
+
+            if (worldTouch.x > position.x + 1) {
+                position.x += delta * playerSpeed;
+            } else if (worldTouch.x < position.x - 1) {
+                position.x -= delta * playerSpeed;
+            }
+
+            if (worldTouch.y > position.y + 1) {
+                position.y += delta * playerSpeed;
+            } else if (worldTouch.y < position.y - 1) {
+                position.y -= delta * playerSpeed;
+            }
+        }
+    }
+
+    public void render(ShapeRenderer renderer) {
+        renderer.setColor(Constants.PLAYER_COLOR);
+        renderer.set(ShapeRenderer.ShapeType.Filled);
+        renderer.circle(position.x, position.y, Constants.ENTITIES_RADIUS, 20);
+    }
+
+    private void accelerometer(float delta) {
         float accelerometerInputY = -Gdx.input.getAccelerometerY() /
                 (Constants.GRAVITATIONAL_ACCELERATION * Constants.ACCELEROMETER_SENSITIVITY);
 
         float accelerometerInputX = -Gdx.input.getAccelerometerX() /
                 (Constants.GRAVITATIONAL_ACCELERATION * Constants.ACCELEROMETER_SENSITIVITY);
 
+        if (accelerometerInputY < -1) accelerometerInputY = -1;
+        if (accelerometerInputY > 1) accelerometerInputY = 1;
+
+        if (accelerometerInputX < -1) accelerometerInputX = -1;
+        if (accelerometerInputX > 1) accelerometerInputX = 1;
+
         position.x += -delta * accelerometerInputY * playerSpeed;
         position.y += delta * accelerometerInputX * playerSpeed;
+    }
 
-        ensureInBounds();
+    private void keyboardInput(float delta) {
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            position.x -= delta * playerSpeed;
+        } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            position.x += delta * playerSpeed;
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            position.y += delta * playerSpeed;
+        } else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            position.y -= delta * playerSpeed;
+        }
     }
 
     private void ensureInBounds() {
@@ -91,12 +133,6 @@ public class Player {
         }
 
         return isHit;
-    }
-
-    public void render(ShapeRenderer renderer) {
-        renderer.setColor(Constants.PLAYER_COLOR);
-        renderer.set(ShapeRenderer.ShapeType.Filled);
-        renderer.circle(position.x, position.y, Constants.ENTITIES_RADIUS, 20);
     }
 
 }
