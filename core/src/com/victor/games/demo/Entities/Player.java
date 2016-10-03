@@ -124,7 +124,7 @@ public class Player {
     public boolean isHitByBadGuy(BadGuys badGuys) {
         boolean isHit = false;
         for (BadGuy badGuy : badGuys.getBadGuysList()) {
-            if (badGuy.position.dst(position) < Constants.ENTITIES_RADIUS) {
+            if (badGuy.position.dst(position) < Constants.ENTITIES_SIZE) {
                 isHit = true;
             }
         }

@@ -25,7 +25,7 @@ public class LevelScreen extends GenericScreen {
     public static final String TAG = LevelScreen.class.getName();
 
     private DemoGame game;
-//    private int difficulty;
+    private int difficulty;
     private Level level;
 
 //    private static final float PERIOD = 1.0f;
@@ -40,6 +40,7 @@ public class LevelScreen extends GenericScreen {
 
     public LevelScreen(DemoGame game, int difficulty) {
         this.game = game;
+        this.difficulty = difficulty;
         this.level = LevelManager.get(difficulty);
 
         super.worldWidth = Constants.LEVEL_SCREEN_WIDTH;
@@ -105,6 +106,11 @@ public class LevelScreen extends GenericScreen {
     public void render(float delta) {
         badGuys.update(delta);
         player.update(delta);
+
+        if (player.isHitByBadGuy(badGuys)) {
+//            game.showLevelScreen(difficulty);
+            player.init();
+        }
 
         viewport.apply();
         Gdx.gl.glClearColor(Constants.LEVEL_SCREEN_BACKGROUND.r, Constants.LEVEL_SCREEN_BACKGROUND.g, Constants.LEVEL_SCREEN_BACKGROUND.b, 1);
