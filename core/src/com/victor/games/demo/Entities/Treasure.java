@@ -10,7 +10,7 @@ import com.victor.games.demo.utils.Constants;
 public class Treasure {
     public static final String TAG = Treasure.class.getName();
 
-    private final Vector2 position;
+    public final Vector2 position;
 
     public Treasure(Vector2 position) {
         this.position = position;

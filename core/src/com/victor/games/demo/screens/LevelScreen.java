@@ -105,6 +105,7 @@ public class LevelScreen extends GenericScreen {
     @Override
     public void render(float delta) {
         badGuys.update(delta);
+        treasures.update(delta, player.position);
         player.update(delta);
 
         if (player.isHitByBadGuy(badGuys)) {

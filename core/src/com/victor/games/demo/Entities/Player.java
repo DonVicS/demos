@@ -14,7 +14,7 @@ public class Player {
     
     public static final String TAG = Player.class.getName();
 
-    private Vector2 position;
+    public Vector2 position;
 
     private Vector2 playerStartingPoint;
     private Vector2 playerEndPoint;
