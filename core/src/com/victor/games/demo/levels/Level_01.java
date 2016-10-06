@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.victor.games.demo.Entities.BadGuy;
 import com.victor.games.demo.Entities.Level;
 import com.victor.games.demo.Entities.Treasure;
+import com.victor.games.demo.Entities.Wall;
 import com.victor.games.demo.utils.Constants;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class Level_01 {
 
     private List<BadGuy> badGuysList;
     private List<Treasure> treasures;
+    private List<Wall> wallList;
 
     public Level_01() {
 //        level = new Level();
@@ -34,8 +36,10 @@ public class Level_01 {
         playerSpeed = 5;
         setBadGuys();
         setTreasures();
+        setWalls();
 
-        level = new Level(id, name, playerStartingPoint, playerEndPoint, playerSpeed, badGuysList, treasures);
+        level = new Level(id, name, playerStartingPoint, playerEndPoint, playerSpeed, 
+                badGuysList, treasures, wallList);
     }
 
     public Level get() {
@@ -102,6 +106,24 @@ public class Level_01 {
 
         treasure = new Treasure(new Vector2(3.5f, 8.5f));
         treasures.add(treasure);
+    }
+
+    private void setWalls() {
+        wallList = new ArrayList<Wall>();
+
+        Wall wall;
+
+        wall = new Wall(new Vector2(2, 17));
+        wallList.add(wall);
+
+//        wall = new Wall(new Vector2(10.5f, 5.5f));
+//        wallList.add(wall);
+//
+//        wall = new Wall(new Vector2(15.5f, 13.5f));
+//        wallList.add(wall);
+//
+//        wall = new Wall(new Vector2(3.5f, 8.5f));
+//        wallList.add(wall);
     }
 
 }

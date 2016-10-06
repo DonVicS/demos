@@ -11,6 +11,7 @@ import com.victor.games.demo.Entities.BadGuys;
 import com.victor.games.demo.Entities.Level;
 import com.victor.games.demo.Entities.Player;
 import com.victor.games.demo.Entities.Treasures;
+import com.victor.games.demo.Entities.Walls;
 import com.victor.games.demo.levels.LevelManager;
 import com.victor.games.demo.utils.Constants;
 
@@ -37,6 +38,7 @@ public class LevelScreen extends GenericScreen {
     private Player player;
     private BadGuys badGuys;
     private Treasures treasures;
+    private Walls walls;
 
     public LevelScreen(DemoGame game, int difficulty) {
         this.game = game;
@@ -92,6 +94,7 @@ public class LevelScreen extends GenericScreen {
         player = new Player(viewport, level.playerStartingPoint, level.playerEndPoint, level.playerSpeed);
         badGuys = new BadGuys(viewport, level.badGuysList);
         treasures = new Treasures(viewport, level.treasuresList);
+        walls = new Walls(viewport, level.wallList);
     }
 
     @Override
@@ -100,6 +103,7 @@ public class LevelScreen extends GenericScreen {
         player.init();
         badGuys.init(level.badGuysList);
         treasures.init(level.treasuresList);
+        walls.init(level.wallList);
     }
 
     @Override
@@ -127,6 +131,7 @@ public class LevelScreen extends GenericScreen {
 //        float cyclePosition = elapsedPeriods % 1;
 
         renderMap();
+        walls.render(renderer);
         badGuys.render(renderer);
         treasures.render(renderer);
         player.render(renderer);

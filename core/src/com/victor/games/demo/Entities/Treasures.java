@@ -38,7 +38,7 @@ public class Treasures {
     }
 
     public void render(ShapeRenderer renderer) {
-        renderer.setColor(Constants.TRESURE_COLOR);
+        renderer.setColor(Constants.TREASURE_COLOR);
         for (Treasure treasure : treasures) {
             treasure.render(renderer);
         }

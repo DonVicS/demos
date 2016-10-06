@@ -49,7 +49,7 @@ public class Constants {
 
     public static final Color PLAYER_COLOR = Color.RED;
 
-    public static final Color TRESURE_COLOR = Color.GOLD;
+    public static final Color TREASURE_COLOR = Color.GOLD;
     public static final Color WALL_COLOR = Color.BLUE;
 
 }

@@ -17,13 +17,15 @@ public class Level {
 
     public List<BadGuy> badGuysList;
     public List<Treasure> treasuresList;
+    public List<Wall> wallList;
 
     public Level() {
 
     }
 
     public Level(int id, String name, Vector2 playerStartingPoint, Vector2 playerEndPoint,
-                 float playerSpeed, List<BadGuy> badGuysList, List<Treasure> treasuresList) {
+                 float playerSpeed, List<BadGuy> badGuysList, List<Treasure> treasuresList,
+                 List<Wall> wallList) {
         this.id = id;
         this.name = name;
         this.playerStartingPoint = playerStartingPoint;
@@ -31,6 +33,7 @@ public class Level {
         this.playerSpeed = playerSpeed;
         this.badGuysList = badGuysList;
         this.treasuresList = treasuresList;
+        this.wallList = wallList;
     }
 
     @Override
@@ -43,6 +46,7 @@ public class Level {
                 ", playerSpeed=" + playerSpeed +
                 ", badGuysList=" + badGuysList +
                 ", treasuresList=" + treasuresList +
+                ", wallList=" + wallList +
                 '}';
     }
 }
