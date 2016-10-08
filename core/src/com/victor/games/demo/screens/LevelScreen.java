@@ -121,6 +121,8 @@ public class LevelScreen extends GenericScreen {
             player.init();
         }
 
+        if (player.reachedEndPoint(endPoint)) game.showMainScreen();
+
         viewport.apply();
         Gdx.gl.glClearColor(Constants.LEVEL_SCREEN_BACKGROUND.r, Constants.LEVEL_SCREEN_BACKGROUND.g, Constants.LEVEL_SCREEN_BACKGROUND.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

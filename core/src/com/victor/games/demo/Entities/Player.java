@@ -224,4 +224,8 @@ public class Player {
         return isHit;
     }
 
+    public boolean reachedEndPoint(EndPoint endPoint) {
+        return endPoint.position.dst(position) < Constants.ENTITIES_RADIUS;
+    }
+
 }
