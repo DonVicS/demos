@@ -1,6 +1,7 @@
 package com.victor.games.demo.Entities;
 
 import com.badlogic.gdx.math.Vector2;
+import com.victor.games.demo.utils.Constants;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class Level {
     public List<BadGuy> badGuysList;
     public List<Treasure> treasuresList;
     public List<Wall> wallList;
+    public int[][] worldMap = new int[Constants.LEVEL_SCREEN_WIDTH][Constants.LEVEL_SCREEN_HEIGHT];
 
     public Level() {
 
@@ -25,7 +27,7 @@ public class Level {
 
     public Level(int id, String name, Vector2 playerStartingPoint, Vector2 playerEndPoint,
                  float playerSpeed, List<BadGuy> badGuysList, List<Treasure> treasuresList,
-                 List<Wall> wallList) {
+                 List<Wall> wallList, int[][] worldMap) {
         this.id = id;
         this.name = name;
         this.playerStartingPoint = playerStartingPoint;
@@ -34,6 +36,7 @@ public class Level {
         this.badGuysList = badGuysList;
         this.treasuresList = treasuresList;
         this.wallList = wallList;
+        this.worldMap = worldMap;
     }
 
     @Override
@@ -47,6 +50,7 @@ public class Level {
                 ", badGuysList=" + badGuysList +
                 ", treasuresList=" + treasuresList +
                 ", wallList=" + wallList +
+                ", worldMap=" + worldMap +
                 '}';
     }
 }

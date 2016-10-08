@@ -18,8 +18,8 @@ public class Constants {
     public static final float GRAVITATIONAL_ACCELERATION = 0.8f;
     public static final float ACCELEROMETER_SENSITIVITY = 0.5f;
 
-    public static final float LEVEL_SCREEN_WIDTH = 26;
-    public static final float LEVEL_SCREEN_HEIGHT = 19;
+    public static final int LEVEL_SCREEN_WIDTH = 26;
+    public static final int LEVEL_SCREEN_HEIGHT = 19;
 
     public static final float BUTTONS_LENGTH = WORLD_SIZE * 0.75f;
     public static final float BUTTONS_HIGH = WORLD_SIZE * 0.1f;

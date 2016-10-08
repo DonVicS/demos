@@ -26,6 +26,7 @@ public class Level_01 {
     private List<BadGuy> badGuysList;
     private List<Treasure> treasures;
     private List<Wall> wallList;
+    private int[][] worldMap = new int[Constants.LEVEL_SCREEN_WIDTH][Constants.LEVEL_SCREEN_HEIGHT];
 
     public Level_01() {
 //        level = new Level();
@@ -39,7 +40,7 @@ public class Level_01 {
         setWalls();
 
         level = new Level(id, name, playerStartingPoint, playerEndPoint, playerSpeed, 
-                badGuysList, treasures, wallList);
+                badGuysList, treasures, wallList, worldMap);
     }
 
     public Level get() {
@@ -124,6 +125,20 @@ public class Level_01 {
 //
 //        wall = new Wall(new Vector2(3.5f, 8.5f));
 //        wallList.add(wall);
+
+        for(int i = 0; i < Constants.LEVEL_SCREEN_WIDTH; i++) {
+            for(int j = 0; j < Constants.LEVEL_SCREEN_HEIGHT; j++) {
+                worldMap[i][j] = 0;
+            }
+        }
+
+        worldMap[2][16] = 1;
+
+        worldMap[5][16] = 1;
+        worldMap[6][16] = 1;
+        worldMap[5][15] = 1;
+        worldMap[6][15] = 1;
+
     }
 
 }

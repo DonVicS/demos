@@ -91,7 +91,8 @@ public class LevelScreen extends GenericScreen {
     public void show() {
         super.show();
 //        initialTime = TimeUtils.nanoTime();
-        player = new Player(viewport, level.playerStartingPoint, level.playerEndPoint, level.playerSpeed);
+        player = new Player(viewport, level.playerStartingPoint, level.playerEndPoint,
+                level.playerSpeed, level.wallList, level.worldMap);
         badGuys = new BadGuys(viewport, level.badGuysList);
         treasures = new Treasures(viewport, level.treasuresList);
         walls = new Walls(viewport, level.wallList);
@@ -131,7 +132,8 @@ public class LevelScreen extends GenericScreen {
 //        float cyclePosition = elapsedPeriods % 1;
 
         renderMap();
-        walls.render(renderer);
+//        walls.render(renderer);
+        walls.renderB(renderer, level.worldMap);
         badGuys.render(renderer);
         treasures.render(renderer);
         player.render(renderer);

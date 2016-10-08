@@ -15,6 +15,7 @@ public class Walls {
     public static final String TAG = Walls.class.getName();
 
     private List<Wall> wallList;
+    private int[][] worldMap;
     private Viewport viewport;
 
     public Walls(Viewport viewport, List<Wall> wallList) {
@@ -30,6 +31,28 @@ public class Walls {
         renderer.setColor(Constants.WALL_COLOR);
         for (Wall wall : wallList) {
             wall.render(renderer);
+        }
+    }
+
+
+
+    public Walls(Viewport viewport, int[][] worldMap) {
+        this.viewport = viewport;
+        init(worldMap);
+    }
+
+    public void init(int[][] worldMap) {
+        this.worldMap = worldMap;
+    }
+
+    public void renderB(ShapeRenderer renderer, int[][] worldMap) {
+        this.worldMap = worldMap;
+        renderer.setColor(Constants.WALL_COLOR);
+        for(int i = 0; i < Constants.LEVEL_SCREEN_WIDTH; i++) {
+            for(int j = 0; j < Constants.LEVEL_SCREEN_HEIGHT; j++) {
+                if (worldMap[i][j] == 1)
+                    new Wall(new Vector2(i, j)).render(renderer);
+            }
         }
     }
 
