@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.victor.games.demo.DemoGame;
 import com.victor.games.demo.Entities.BadGuy;
 import com.victor.games.demo.Entities.BadGuys;
+import com.victor.games.demo.Entities.EndPoint;
 import com.victor.games.demo.Entities.Level;
 import com.victor.games.demo.Entities.Player;
 import com.victor.games.demo.Entities.Treasures;
@@ -39,6 +40,7 @@ public class LevelScreen extends GenericScreen {
     private BadGuys badGuys;
     private Treasures treasures;
     private Walls walls;
+    private EndPoint endPoint;
 
     public LevelScreen(DemoGame game, int difficulty) {
         this.game = game;
@@ -96,6 +98,7 @@ public class LevelScreen extends GenericScreen {
         badGuys = new BadGuys(viewport, level.badGuysList);
         treasures = new Treasures(viewport, level.treasuresList);
         walls = new Walls(viewport, level.wallList);
+        endPoint = new EndPoint(level.playerEndPoint);
     }
 
     @Override
@@ -134,6 +137,7 @@ public class LevelScreen extends GenericScreen {
         renderMap();
 //        walls.render(renderer);
         walls.renderB(renderer, level.worldMap);
+        endPoint.render(renderer);
         badGuys.render(renderer);
         treasures.render(renderer);
         player.render(renderer);

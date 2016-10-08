@@ -32,8 +32,10 @@ public class Level_01 {
 //        level = new Level();
         id = 1;
         name = "Stage 1";
-        playerStartingPoint = new Vector2(0.5f, Constants.LEVEL_SCREEN_HEIGHT - 0.5f);
-        playerEndPoint = new Vector2(Constants.LEVEL_SCREEN_WIDTH, Constants.LEVEL_SCREEN_HEIGHT);
+        playerStartingPoint = new Vector2(0 + Constants.ENTITIES_RADIUS,
+                                        Constants.LEVEL_SCREEN_HEIGHT - Constants.ENTITIES_RADIUS);
+        playerEndPoint = new Vector2(Constants.LEVEL_SCREEN_WIDTH - Constants.ENTITIES_RADIUS,
+                                    Constants.LEVEL_SCREEN_HEIGHT - Constants.ENTITIES_RADIUS);
         playerSpeed = 5;
         setBadGuys();
         setTreasures();

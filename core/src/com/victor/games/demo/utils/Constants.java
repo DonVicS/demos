@@ -51,5 +51,6 @@ public class Constants {
 
     public static final Color TREASURE_COLOR = Color.GOLD;
     public static final Color WALL_COLOR = Color.BLUE;
+    public static final Color END_POINT_COLOR = Color.VIOLET;
 
 }
