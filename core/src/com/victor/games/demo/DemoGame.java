@@ -2,6 +2,7 @@ package com.victor.games.demo;
 
 import com.badlogic.gdx.Game;
 import com.victor.games.demo.screens.CreditsScreen;
+import com.victor.games.demo.screens.LevelScoreScreen;
 import com.victor.games.demo.screens.LoadScreen;
 import com.victor.games.demo.screens.MainScreen;
 import com.victor.games.demo.screens.SaveScreen;
@@ -19,6 +20,12 @@ public class DemoGame extends Game {
 
     public void showLevelScreen(int level) {
         setScreen(new com.victor.games.demo.screens.LevelScreen(this, level));
+    }
+
+    public void showLevelScoreScreen(int difficulty, int deaths, int totalTreasures,
+                                       int collectedTreasures) {
+        setScreen(new LevelScoreScreen(this, difficulty, deaths, totalTreasures,
+                                        collectedTreasures));
     }
 
     public void showSaveScreen() {

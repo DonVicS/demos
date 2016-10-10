@@ -17,7 +17,7 @@ public class Treasures {
     private List<Treasure> treasures;
     private Viewport viewport;
 
-    int treasuresCollected = 0;
+    public int treasuresCollected = 0;
 
     public Treasures(Viewport viewport, List<Treasure> treasures) {
         this.viewport = viewport;

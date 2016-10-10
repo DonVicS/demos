@@ -27,7 +27,7 @@ public class Player {
 
     private Viewport viewport;
 
-    private int deaths;
+    public int deaths;
 
 //    private int id;
 //    private String name;

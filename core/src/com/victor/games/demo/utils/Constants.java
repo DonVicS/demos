@@ -14,6 +14,7 @@ public class Constants {
     public static final Color SAVE_SCREEN_BACKGROUND_COLOR = Color.FIREBRICK;
     public static final Color LOAD_SCREEN_BACKGROUND_COLOR = Color.CYAN;
     public static final Color CREDITS_SCREEN_BACKGROUND_COLOR = Color.RED;
+    public static final Color LEVEL_SCORE_SCREEN_COLOR = Color.SKY;
 
     public static final float GRAVITATIONAL_ACCELERATION = 0.8f;
     public static final float ACCELEROMETER_SENSITIVITY = 0.5f;
@@ -28,6 +29,9 @@ public class Constants {
     public static final float BUTTONS_LABEL_SCALE = 1.5f;
     public static final float BUTTON_X = (WORLD_SIZE - BUTTONS_LENGTH) / 2;
 
+    /**
+     * Main Screen
+     */
     public static final Vector2 NEW_GAME_BUTTON_POSITION = new Vector2(BUTTON_X, WORLD_SIZE * 0.3f);
     public static final Vector2 NEW_GAME_BUTTON_CENTER = new Vector2(BUTTON_X + BUTTONS_LENGTH / 2, NEW_GAME_BUTTON_POSITION.y + BUTTONS_HIGH / 2);
     public static final String NEW_GAME_LABEL = "New Game";
@@ -40,6 +44,9 @@ public class Constants {
     public static final Vector2 LOAD_BUTTON_CENTER = new Vector2(BUTTON_X + BUTTONS_LENGTH / 2, LOAD_BUTTON_POSITION.y + BUTTONS_HIGH / 2);
     public static final String LOAD_LABEL = "Load Game";
 
+    /**
+     * Level Screen
+     */
     public static final float ENTITIES_SIZE = 1;
     public static final float ENTITIES_RADIUS = ENTITIES_SIZE / 2;
 
@@ -52,5 +59,20 @@ public class Constants {
     public static final Color TREASURE_COLOR = Color.GOLD;
     public static final Color WALL_COLOR = Color.BLUE;
     public static final Color END_POINT_COLOR = Color.VIOLET;
+
+    /**
+     * Level Score Screen
+     */
+    public static final Vector2 REPEAT_LEVEL_BUTTON_POSITION = new Vector2(BUTTON_X, WORLD_SIZE * 0.3f);
+    public static final Vector2 REPEAT_LEVEL_BUTTON_CENTER = new Vector2(BUTTON_X + BUTTONS_LENGTH / 2, REPEAT_LEVEL_BUTTON_POSITION.y + BUTTONS_HIGH / 2);
+    public static final String REPEAT_LEVEL_LABEL = "Repeat";
+
+    public static final Vector2 NEXT_LEVEL_BUTTON_POSITION = new Vector2(BUTTON_X, REPEAT_LEVEL_BUTTON_POSITION.y - BUTTONS_SEPARATION - BUTTONS_HIGH);
+    public static final Vector2 NEXT_LEVEL_BUTTON_CENTER = new Vector2(BUTTON_X + BUTTONS_LENGTH / 2, NEXT_LEVEL_BUTTON_POSITION.y + BUTTONS_HIGH / 2);
+    public static final String NEXT_LEVEL_LABEL = "Next";
+
+    public static final Vector2 MAIN_MENU_BUTTON_POSITION = new Vector2(BUTTON_X, NEXT_LEVEL_BUTTON_POSITION.y - BUTTONS_SEPARATION - BUTTONS_HIGH);
+    public static final Vector2 MAIN_MENU_BUTTON_CENTER = new Vector2(BUTTON_X + BUTTONS_LENGTH / 2, MAIN_MENU_BUTTON_POSITION.y + BUTTONS_HIGH / 2);
+    public static final String MAIN_MENU_LABEL = "Main Menu";
 
 }

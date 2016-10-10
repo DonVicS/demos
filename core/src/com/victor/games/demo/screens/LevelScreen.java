@@ -121,7 +121,9 @@ public class LevelScreen extends GenericScreen {
             player.init();
         }
 
-        if (player.reachedEndPoint(endPoint)) game.showMainScreen();
+        if (player.reachedEndPoint(endPoint))
+            game.showLevelScoreScreen(difficulty, player.deaths, level.treasuresList.size(),
+                    treasures.treasuresCollected);
 
         viewport.apply();
         Gdx.gl.glClearColor(Constants.LEVEL_SCREEN_BACKGROUND.r, Constants.LEVEL_SCREEN_BACKGROUND.g, Constants.LEVEL_SCREEN_BACKGROUND.b, 1);
