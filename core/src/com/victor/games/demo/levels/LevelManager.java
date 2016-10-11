@@ -14,6 +14,8 @@ public class LevelManager {
                 break;
             case 2: level = new Level_02().get();
                 break;
+            case 3: level = new Map_01().get();
+                break;
         }
         return level;
     }
